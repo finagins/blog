@@ -1,6 +1,6 @@
 <?php
 
-return array(
+return [
 
     /*
     |--------------------------------------------------------------------------
@@ -95,7 +95,6 @@ return array(
         'app/Models',
     ],
 
-
     /*
     |--------------------------------------------------------------------------
     | Extra classes
@@ -158,7 +157,7 @@ return array(
     |
     */
     'custom_db_types' => [
-        "jsonb" => "json_array",
+        'jsonb' => 'json_array',
     ],
 
     /*
@@ -211,4 +210,4 @@ return array(
     */
     'include_class_docblocks' => true,
 
-);
+];
