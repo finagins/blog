@@ -157,7 +157,7 @@ return [
     |
     */
     'custom_db_types' => [
-        "jsonb" => "json_array",
+        'jsonb' => 'json_array',
     ],
 
     /*
