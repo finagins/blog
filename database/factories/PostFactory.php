@@ -11,6 +11,6 @@ $factory->define(Post::class, function (Faker $faker) {
         'title' => $faker->sentence,
         'body' => $faker->text,
         'author_id' => User::all()->random()->id,
-        'created_at' => $faker->dateTimeBetween()
+        'created_at' => $faker->dateTimeBetween(),
     ];
 });
