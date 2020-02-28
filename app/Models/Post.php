@@ -16,7 +16,6 @@ class Post extends Model
      *
      * @var array
      */
-
     protected $fillable = [
         'title', 'body', 'published_at',
     ];
