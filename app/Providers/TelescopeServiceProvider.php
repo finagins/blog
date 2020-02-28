@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
+use Laravel\Telescope\EntryType;
 use Laravel\Telescope\IncomingEntry;
 use Laravel\Telescope\Telescope;
 use Laravel\Telescope\TelescopeApplicationServiceProvider;
@@ -31,6 +32,20 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
                    $entry->isFailedJob() ||
                    $entry->isScheduledTask() ||
                    $entry->hasMonitoredTag();
+        });
+
+        Telescope::tag(function (IncomingEntry $entry) {
+            $tags = [];
+
+            if ($entry->type === EntryType::REQUEST) {
+                $tags[] = 'Status:'.$entry->content['response_status'];
+
+                $tags[] = 'Status:'.($entry->content['response_status'] < 400
+                        ? 'Success'
+                        : 'Error');
+            }
+
+            return $tags;
         });
     }
 
